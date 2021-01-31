@@ -1,3 +1,5 @@
+plugin codemonstur/bobtranslate:1.0.0
+
 packaging: bob-plugin
 enablePreview: false
 version: 1.0.0
@@ -28,6 +30,12 @@ deploy
     echo "[${PROJECT_NAME}] Creating github release"
     hub release create -a target/${PROJECT_NAME}-${PROJECT_VERSION}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
 
+-- Compile the code and add the jar to the local bob repository
 install-local
     run-target build
-    cp target/${PROJECT_NAME}-${PROJECT_VERSION}.jar ${USERPROFILE}\.bob\github\codemonstur%2f${PROJECT_NAME}\codemonstur%2f${PROJECT_NAME}-${PROJECT_VERSION}.jar
+    cp target/${PROJECT_NAME}-${PROJECT_VERSION}.jar ~/.bob/github/codemonstur%2f${PROJECT_NAME}/codemonstur%2f${PROJECT_NAME}-${PROJECT_VERSION}.jar
+
+-- Run the bob-plugin on test files within this project
+test
+  - translate -p src/test/lang check-keys
+    translate -p src/test/lang check-values
