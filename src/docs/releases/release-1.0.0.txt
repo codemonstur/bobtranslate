@@ -1,0 +1,5 @@
+1.0.0
+
+First version
+Implemented command check-keys
+Implemented command check-values
