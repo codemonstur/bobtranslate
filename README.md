@@ -1,8 +1,21 @@
 
-[![GitHub Release](https://img.shields.io/github/release/codemonstur/htmlcompiler-bobplugin.svg)](https://github.com/codemonstur/htmlcompiler-bobplugin/releases) 
-[![Build Status](https://travis-ci.org/codemonstur/htmlcompiler-bobplugin.svg?branch=master)](https://travis-ci.org/codemonstur/htmlcompiler-bobplugin)
+[![GitHub Release](https://img.shields.io/github/release/codemonstur/bobtranslate.svg)](https://github.com/codemonstur/bobtranslate/releases) 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-# HtmlCompiler as a bob-plugin
+# Bob-translate
 
-Allows bob to run the HtmlCompiler as a plugin
+Utils for managing internationalization files in a bob-plugin
+
+So far only checks on:
+- Missing keys
+- Missing values
+
+Future feature:
+- Automatically complete translations by correlation
+
+Lots of keys contain the same value, for example 'Close' or 'Add' buttons. It should be possible to lookup a missing translation by finding the same phrase in the file
+
+- Automatically translate missing text using Google translate
+
+This is harder than it might seem. Google created a hard to use library that also requires account data. Alternatively I could try scraping it off the website. Although Google makes that hard.
+
