@@ -6,11 +6,13 @@ version: 1.0.0
 dependencies:
   - project: ../bobthebuildtool
     scope: provided
+  - repository: com.codeborne:selenide:5.18.0
+
 
 -- Cleans then builds the code, prints a nice message first.
 build
     echo [${PROJECT_NAME}] Building
-    run-target -i clean build
+    run-task -i clean build
 
 -- Generates release notes in src/docs/releases/release-{version}.txt
 release-notes
@@ -23,17 +25,17 @@ release-notes
 -- Performs; clean, build, tag repo with version, push and finally upload binaries to github
 deploy
     echo "[${PROJECT_NAME}] Clean and build for deploy"
-    run-target -i clean build
+    run-task -i clean build
     echo "[${PROJECT_NAME}] Tagging and pushing to github"
     git tag ${PROJECT_NAME}-${PROJECT_VERSION}
     git push && git push --tags
     echo "[${PROJECT_NAME}] Creating github release"
-    hub release create -a target/${PROJECT_NAME}-${PROJECT_VERSION}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
+    hub release create -a task/${PROJECT_NAME}-${PROJECT_VERSION}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
 
 -- Compile the code and add the jar to the local bob repository
 install-local
-    run-target build
-    cp target/${PROJECT_NAME}-${PROJECT_VERSION}.jar ~/.bob/github/codemonstur%2f${PROJECT_NAME}/codemonstur%2f${PROJECT_NAME}-${PROJECT_VERSION}.jar
+    run-task build
+    cp task/${PROJECT_NAME}-${PROJECT_VERSION}.jar ~/.bob/github/codemonstur%2f${PROJECT_NAME}/codemonstur%2f${PROJECT_NAME}-${PROJECT_VERSION}.jar
 
 -- Run the bob-plugin on test files within this project
 test
