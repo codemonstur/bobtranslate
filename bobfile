@@ -1,5 +1,5 @@
 include https://raw.githubusercontent.com/codemonstur/bobfiles/master/foss-app-github
-plugin codemonstur/bobtranslate:1.0.0
+#plugin codemonstur/bobtranslate:1.0.0
 
 packaging: bob-plugin
 enablePreview: false

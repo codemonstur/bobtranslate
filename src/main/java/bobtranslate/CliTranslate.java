@@ -16,7 +16,7 @@ public class CliTranslate {
     @CliOption(name = 'l', longName = "log-level", description = "Log level to use for reporting", defaultValue = "2")
     public int logLevel;
 
-    @CliPositional(index = 0)
+    @CliPositional
     public TranslateCommand command;
 
     @CliUnderscoreIsDash

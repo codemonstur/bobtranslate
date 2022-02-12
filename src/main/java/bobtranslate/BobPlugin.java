@@ -18,10 +18,9 @@ import static jcli.CliParserBuilder.newCliParser;
 public enum BobPlugin {;
 
     private static final String DESCRIPTION_TRANSLATE = "Various tools for fixing language files";
-    private static final String REQUIRED_MINIMUM_VERSION = "0.2.0";
 
     public static void installPlugin(final Project project) throws VersionTooOld {
-        requireBobVersion(REQUIRED_MINIMUM_VERSION);
+        requireBobVersion("7");
         project.addCommand("translate", DESCRIPTION_TRANSLATE, BobPlugin::translate);
     }
 
@@ -29,16 +28,12 @@ public enum BobPlugin {;
             throws InvalidCommandLine, InvalidInput, IOException {
         final CliTranslate arguments = newCliParser(CliTranslate::new).parse(args);
         final var reporter = toReporter(arguments.logLevel);
-        switch (arguments.command) {
-            case check_keys:
-                return checkKeysInDir(arguments.path, reporter);
-            case check_values:
-                return checkValuesInDir(arguments.path, reporter);
-            case translate:
-                throw new InvalidInput("Option 'translate' has not been implemented yet.");
-        }
 
-        return 0;
+        return switch (arguments.command) {
+            case check_keys -> checkKeysInDir(arguments.path, reporter);
+            case check_values -> checkValuesInDir(arguments.path, reporter);
+            case translate -> throw new InvalidInput("Option 'translate' has not been implemented yet.");
+        };
     }
 
     private static Consumer<String> toReporter(final int logLevel) throws InvalidInput {
