@@ -1,18 +1,18 @@
+package apis;
+
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
-import java.io.IOException;
-import java.text.ParseException;
+import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Scraper {
+public final class GoogleTranslate implements Translator {
 
     // Doesn't work.
-    public static void main(String[] args) throws IOException, ParseException {
-
+    @Override  public List<String> translate(final String text) {
         ChromeDriverManager.getInstance(DriverManagerType.CHROME).browserVersion("76.0.3809.126").setup();
         Configuration.startMaximized = true;
         open("https://translate.google.com/?hl=en#view=home&op=translate&sl=en&tl=nl");
@@ -22,6 +22,7 @@ public class Scraper {
             $x("//textarea[@id='source']").sendKeys(data);
             String translation = $x("//span[@class='tlid-translation translation']").getText();
         }
+        return null;
     }
 
 }

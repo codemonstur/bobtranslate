@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static bobtranslate.util.IO.loadTranslationsMap;
+import static bobtranslate.util.Functions.loadTranslationsMap;
 import static java.util.stream.Collectors.toList;
 
 public enum MissingTranslations {;

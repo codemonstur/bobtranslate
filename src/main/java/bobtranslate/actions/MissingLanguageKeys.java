@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static bobtranslate.util.IO.loadTranslationsMap;
+import static bobtranslate.util.Functions.loadTranslationsMap;
 import static java.util.stream.Collectors.toList;
 
 public enum MissingLanguageKeys {;
