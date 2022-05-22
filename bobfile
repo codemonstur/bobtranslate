@@ -9,7 +9,7 @@ dependencies:
     scope: provided
   - repository: com.jayway.jsonpath:json-path:2.7.0
     scope: test
-  - repository: com.codeborne:selenide:5.23.3
+  - repository: com.codeborne:selenide:6.5.0
     scope: test
 
 -- Compile the code and add the jar to the local bob repository
