@@ -14,7 +14,7 @@ public final class GoogleTranslate implements Translator {
     // Doesn't work.
     @Override  public List<String> translate(final String text) {
         ChromeDriverManager.getInstance(DriverManagerType.CHROME).browserVersion("76.0.3809.126").setup();
-        Configuration.startMaximized = true;
+        // Configuration.startMaximized = true;
         open("https://translate.google.com/?hl=en#view=home&op=translate&sl=en&tl=nl");
         String[] strings = {"hello", "A simple sentence"};
         for (String data: strings) {
