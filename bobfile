@@ -11,9 +11,9 @@ dependencies:
     scope: test
   - repository: org.jsoup:jsoup:1.15.3
     scope: test
-  - repository: com.codeborne:selenide:6.10.3
+  - repository: com.codeborne:selenide:6.11.1
     scope: test
-  - repository: com.github.codemonstur:httpclient:1.0.2
+  - repository: com.github.codemonstur:httpclient:1.0.3
     scope: test
 
 
