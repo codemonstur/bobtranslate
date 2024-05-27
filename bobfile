@@ -7,13 +7,13 @@ version: 3
 dependencies:
   - project: ../bobthebuildtool
     scope: provided
-  - repository: com.jayway.jsonpath:json-path:2.8.0
+  - repository: com.jayway.jsonpath:json-path:2.9.0
     scope: test
-  - repository: org.jsoup:jsoup:1.16.1
+  - repository: org.jsoup:jsoup:1.17.2
     scope: test
-  - repository: com.codeborne:selenide:6.17.2
+  - repository: com.codeborne:selenide:7.1.0
     scope: test
-  - repository: com.github.codemonstur:httpclient:1.1.0
+  - repository: com.github.codemonstur:httpclient:1.2.1
     scope: test
 
 
